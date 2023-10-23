@@ -4,7 +4,7 @@
 This is a simple Spring Boot application written in Java 17 and built using Gradle. It exposes a REST endpoint at /hello which returns a simple greeting message.
 
 ## Requirements
-- [Java 17](https://adoptium.net/)
+- [Java 11](https://adoptium.net/temurin/releases/?version=11&package=jdk)
 
 ## Usage
 To build, test and run the application using the Gradle wrapper, follow these simple steps:
