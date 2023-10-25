@@ -15,7 +15,9 @@
 # https://docs.gitlab.com/ee/development/cicd/templates.html
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
-
+before_script:
+  - GRADLE_USER_HOME="$(pwd)/.gradle"
+  - export GRADLE_USER_HOME
 
 stages:          # List of stages for jobs, and their order of execution
   - build
@@ -27,12 +29,25 @@ build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
     - ./gradlew assemble
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - build
+      - .gradle
+
 
 unit-test-job:   # This job runs in the test stage.
   image: eclipse-temurin:11
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
     - ./gradlew test
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - build
+      - .gradle
 
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
