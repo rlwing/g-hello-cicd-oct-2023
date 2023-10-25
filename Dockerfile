@@ -1,5 +1,5 @@
-FROM openjdk:11-jre-slim
+FROM eclipse-temurin:11-jdk-alpine
 WORKDIR /app
-COPY ./build/libs/g-hello-0.0.1-SNAPSHOT.jar /app/g-hello-0.0.1-SNAPSHOT.jar
+COPY build/libs/*SNAPSHOT.jar app.jar
+CMD java -jar app.jar
 EXPOSE 8080
-CMD ["java", "-jar", "/app/g-hello-0.0.1-SNAPSHOT.jar"]
