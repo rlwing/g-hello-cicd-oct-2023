@@ -1,10 +1,14 @@
 # g-hello
 
 ## Details
-This is a simple Spring Boot application written in Java 17 and built using Gradle. It exposes a REST endpoint at /hello which returns a simple greeting message.
+This is a simple Spring Boot application written in Java 11 and built using Gradle. It exposes a REST endpoint at /hello which returns a simple greeting message.
 
 ## Requirements
 - [Java 11](https://adoptium.net/temurin/releases/?version=11&package=jdk)
+    - Windows: [Chocolatey](https://Chocolatey.org) install `choco install temurin11`
+    - Macintosh: [Homebrew](https://brew.sh) install 
+        - `brew tap homebrew/cask-versions` Add the available versions to homebrew
+        - `brew install --cask temurin11` Install the JDK 11
 
 ## Usage
 To build, test and run the application using the Gradle wrapper, follow these simple steps:
