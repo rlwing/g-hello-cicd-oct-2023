@@ -1,2 +1,7 @@
 include:
   - template: Gradle.gitlab-ci.yml
+
+build:
+  artifacts:
+    paths:
+      - build/libs/*.jar
